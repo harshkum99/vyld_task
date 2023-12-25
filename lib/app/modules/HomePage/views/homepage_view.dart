@@ -114,19 +114,19 @@ class MyHomePage extends StatelessWidget {
                     mainAxisSize: MainAxisSize.max,
                     children: [
                       Transform.translate(
-                        offset: const Offset(-95, 0),
+                        offset: Offset(-MediaQuery.of(context).size.width * 0.25, 0),
                         child: Stack(children: <Widget>[
                           Container(
-                            width: 290,
-                            height: 285,
+                            width: MediaQuery.of(context).size.width * 0.75,
+                            height: MediaQuery.of(context).size.height * 0.35,
                             decoration: BoxDecoration(
                               color: Colors.blue[700],
                               borderRadius: BorderRadius.circular(135),
                             ),
                           ),
                           Positioned(
-                            bottom: 115,
-                            left: 100,
+                            bottom: MediaQuery.of(context).size.height * 0.14, //115,
+                            left: MediaQuery.of(context).size.width * 0.26, //100,
                             child: const Column(
                               mainAxisAlignment: MainAxisAlignment.start,
                               crossAxisAlignment: CrossAxisAlignment.start,
@@ -150,10 +150,13 @@ class MyHomePage extends StatelessWidget {
                         ]),
                       ),
                       Transform.translate(
-                        offset: const Offset(-65, -62.5),
+                        offset: Offset(
+                          -MediaQuery.of(context).size.width * 0.17,
+                          -MediaQuery.of(context).size.width * 0.16,
+                        ), //const Offset(-65, -62.5),
                         child: Container(
-                          height: 95,
-                          width: 92.5,
+                          height: MediaQuery.of(context).size.height * 0.11,
+                          width: MediaQuery.of(context).size.width * 0.25,
                           decoration: BoxDecoration(
                             color: Colors.grey[350],
                             borderRadius: BorderRadius.circular(44),

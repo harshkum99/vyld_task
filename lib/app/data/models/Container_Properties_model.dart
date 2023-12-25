@@ -6,6 +6,7 @@ class ContainerProperties {
   final EdgeInsetsGeometry margin;
   final Color color;
   final int count;
+  ImageProvider<Object>? image;
 
-  ContainerProperties({required this.size, required this.radius, required this.margin, required this.color, this.count = 0});
+  ContainerProperties({required this.size, required this.radius, required this.margin, required this.color, this.count = 0, this.image});
 }

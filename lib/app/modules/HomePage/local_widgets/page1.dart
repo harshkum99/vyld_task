@@ -2,6 +2,7 @@ import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_animate/flutter_animate.dart';
 import 'package:vyld/app/data/models/Container_Properties_model.dart';
+import 'package:vyld/app/themes/app_images.dart';
 
 class PageView1 extends StatelessWidget {
   const PageView1({super.key});
@@ -17,12 +18,12 @@ class PageView1 extends StatelessWidget {
       Alignment.bottomCenter,
     ];
     List<ContainerProperties> containerProperties = [
-      ContainerProperties(size: Size(MediaQuery.of(context).size.width * 0.33, childHeight), radius: 42.5, margin: const EdgeInsets.only(left: 20.0, right: 10.0, top: 70.0, bottom: 00.0), color: const Color.fromARGB(255, 0, 49, 134)),
-      ContainerProperties(size: Size(MediaQuery.of(context).size.width * 0.22, childHeight), radius: 25, margin: const EdgeInsets.only(left: 20.0, right: 5.0, top: 50.0, bottom: 60.0), color: const Color.fromARGB(255, 0, 49, 134)),
-      ContainerProperties(size: Size(MediaQuery.of(context).size.width * 0.45, childHeight), radius: 55.0, margin: const EdgeInsets.only(bottom: 10.0, top: 25.0, right: 20.0, left: 30.0), color: const Color.fromARGB(255, 203, 75, 35), count: 4),
-      ContainerProperties(size: Size(MediaQuery.of(context).size.width * 0.3, childHeight), radius: 30.0, margin: const EdgeInsets.only(bottom: 32.5, top: 62.5, right: 25, left: 20), color: const Color.fromARGB(255, 105, 149, 226)),
-      ContainerProperties(size: Size(MediaQuery.of(context).size.width * 0.4, childHeight), radius: 45, margin: const EdgeInsets.only(bottom: 40.0, top: 20.0, right: 22.5, left: 22.5), color: const Color.fromARGB(255, 193, 174, 5)),
-      ContainerProperties(size: Size(MediaQuery.of(context).size.width * 0.3, childHeight), radius: 35.0, margin: const EdgeInsets.only(bottom: 15.0, top: 65.0, right: 15.0, left: 15.0), color: const Color.fromARGB(255, 250, 189, 210)),
+      ContainerProperties(size: Size(MediaQuery.of(context).size.width * 0.33, childHeight), radius: 42.5, margin: const EdgeInsets.only(left: 20.0, right: 10.0, top: 70.0, bottom: 00.0), color: const Color.fromARGB(255, 0, 49, 134), image: const AssetImage(AppImages.femaleC)),
+      ContainerProperties(size: Size(MediaQuery.of(context).size.width * 0.22, childHeight), radius: 25, margin: const EdgeInsets.only(left: 20.0, right: 5.0, top: 50.0, bottom: 60.0), color: const Color.fromARGB(255, 0, 49, 134), image: const AssetImage(AppImages.femaleB)),
+      ContainerProperties(size: Size(MediaQuery.of(context).size.width * 0.45, childHeight), radius: 55.0, margin: const EdgeInsets.only(bottom: 10.0, top: 25.0, right: 20.0, left: 30.0), color: const Color(0xffFF7E51), count: 4, image: const AssetImage(AppImages.text)),
+      ContainerProperties(size: Size(MediaQuery.of(context).size.width * 0.3, childHeight), radius: 30.0, margin: const EdgeInsets.only(bottom: 32.5, top: 62.5, right: 25, left: 20), color: const Color.fromARGB(255, 105, 149, 226), image: const AssetImage(AppImages.maleB)),
+      ContainerProperties(size: Size(MediaQuery.of(context).size.width * 0.4, childHeight), radius: 45, margin: const EdgeInsets.only(bottom: 40.0, top: 20.0, right: 22.5, left: 22.5), color: const Color.fromARGB(255, 193, 174, 5), image: const AssetImage(AppImages.femaleA)),
+      ContainerProperties(size: Size(MediaQuery.of(context).size.width * 0.3, childHeight), radius: 35.0, margin: const EdgeInsets.only(bottom: 15.0, top: 65.0, right: 15.0, left: 15.0), color: const Color.fromARGB(255, 250, 189, 210), image: const AssetImage(AppImages.maleA)),
     ];
     return Wrap(
       spacing: 0, // gap between adjacent chips
@@ -51,6 +52,10 @@ class PageView1 extends StatelessWidget {
                   decoration: BoxDecoration(
                     borderRadius: BorderRadius.circular(containerProperties[index].radius),
                     color: containerProperties[index].color,
+                    image: DecorationImage(
+                      image: containerProperties[index].image ?? const AssetImage(AppImages.maleC),
+                      fit: BoxFit.cover,
+                    ),
                   ),
                 ),
                 containerProperties[index].count == 0
