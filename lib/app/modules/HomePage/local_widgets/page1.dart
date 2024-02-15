@@ -25,16 +25,21 @@ class PageView1 extends StatelessWidget {
       ContainerProperties(size: Size(MediaQuery.of(context).size.width * 0.4, childHeight), radius: 45, margin: const EdgeInsets.only(bottom: 40.0, top: 20.0, right: 22.5, left: 22.5), color: const Color.fromARGB(255, 193, 174, 5), image: const AssetImage(AppImages.femaleA)),
       ContainerProperties(size: Size(MediaQuery.of(context).size.width * 0.3, childHeight), radius: 35.0, margin: const EdgeInsets.only(bottom: 15.0, top: 65.0, right: 15.0, left: 15.0), color: const Color.fromARGB(255, 250, 189, 210), image: const AssetImage(AppImages.maleA)),
     ];
+    List<int> durations = [
+      350,
+      250,
+      150
+    ];
     return Wrap(
       spacing: 0, // gap between adjacent chips
       runSpacing: 0, // gap between lines
       children: List.generate(containerProperties.length, (index) {
         return Animate(
-          effects: const [
+          effects: [
             SlideEffect(
               curve: Curves.easeInOut,
-              duration: Duration(milliseconds: 300),
-              begin: Offset(-1.0, 0.0),
+              duration: Duration(milliseconds: durations[index % durations.length]), //vary timing here for each
+              begin: Offset(-5.0, 0.0),
               end: Offset(0.0, 0.0),
             ),
           ],
